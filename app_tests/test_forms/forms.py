@@ -8,4 +8,5 @@ class TestFormForm(forms.ModelForm):
 
 class StudentTestCaseForm(forms.ModelForm):
     class Meta:
-        model = TestForm
+        model = StudentTestCase
+        fields = ('test_name', 'student_name', 'test_score',)
