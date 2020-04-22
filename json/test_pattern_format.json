@@ -2,6 +2,10 @@
 {
     "testName": "name",
     "openingTime": "MM/dd/yyyy H:mm, example: 05/29/2015 5:50",
+<<<<<<< HEAD
+=======
+    "endingTime": "04/22/2015 23:50",
+>>>>>>> c2f375a2d57b576d0f24777cd0ad2209a5646ac2
     "test": {
         "questions": [
             {
@@ -28,6 +32,10 @@
     "testID": 1,
     "testName": "name",
     "openingTime": "MM/dd/yyyy H:mm, example: 05/29/2015 5:50",
+<<<<<<< HEAD
+=======
+    "endingTime": "04/22/2015 23:50",
+>>>>>>> c2f375a2d57b576d0f24777cd0ad2209a5646ac2
     "test": {
         "questions": [
             {

@@ -1,0 +1,24 @@
+{
+    "testName": "Тестовый тест)",
+    "openingTime": "04/22/2015 5:50",
+    "endingTime": "04/22/2015 23:50",
+    "test": {
+        "questions": [
+            {
+                "type": "answer_options",
+                "task": "What is the capital of Great Britain?",
+                "answer_options": [
+                    "London",
+                    "Moscow",
+                    "Karaganda"
+                ],
+                "right_answer": "London"
+            },
+            {
+                "type": "text_field",
+                "task": "Who is the first astronaut?",
+                "right_answer": "Yuri Gagarin"
+            }
+        ]
+    }
+}
