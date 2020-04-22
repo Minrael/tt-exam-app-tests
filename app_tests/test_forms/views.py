@@ -3,10 +3,12 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_GET, require_POST
 from .models import TestForm
 from .forms import TestFormForm, StudentTestCase
+import os
+from django.http import HttpResponse
+from app_tests.settings import BASE_DIR
 
 def index_page(request):
     return  JsonResponse({'data': 'test'})
-
 
 def test_create(request):
     if request.method == 'POST':
@@ -22,4 +24,14 @@ def send_test_to_student(request, test_name, user_id):
 @require_GET
 def get_test_results(request):
     test_results = StudentTestCase.objects.all().values('student_name', 'test_score')
-    return JsonResponse({'data': list(test_results)})
+    return JsonResponse({'data': test_results})
+
+# static
+def pass_test(request, id):
+    with open(os.path.join(BASE_DIR, 'static/pass_test', 'index.html')) as file:
+        return HttpResponse(file.read())
+
+# static
+def check_results(request, id):
+    with open(os.path.join(BASE_DIR, 'static/results', 'index.html')) as file:
+        return HttpResponse(file.read())
