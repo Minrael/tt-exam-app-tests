@@ -1,0 +1,65 @@
+Преподаватель формирует тест в таком формате:
+{
+    "testName": "name",
+    "openingTime": "MM/dd/yyyy H:mm, example: 05/29/2015 5:50",
+    "endingTime": "04/22/2015 23:50",
+    "test": {
+        "questions": [
+            {
+                "type": "answer_options", // or text_field
+                "task": "What is the capital of Great Britain?",
+                "answer_options": [
+                    "option1",
+                    "option2"
+                ],
+                "right_answer": "option1"
+            },
+            {
+                "type": "text_field",
+                "task": "What is the capital of Great Britain?",
+                "right_answer": "answer"
+            }
+        ]
+    }
+}
+
+
+Фронтэнд студента получает тест в таком формате (ОТЛИЧИЕ - НЕТ ОТВЕТОВ А ТАКЖЕ ЕСТЬ id):
+{   
+    "testID": 1,
+    "testName": "name",
+    "openingTime": "MM/dd/yyyy H:mm, example: 05/29/2015 5:50",
+    "endingTime": "04/22/2015 23:50",
+    "test": {
+        "questions": [
+            {
+                "type": "answer_options",
+                "task": "What is the capital of Great Britain?",
+                "answer_options": [
+                    "option1",
+                    "option2"
+                ],
+            },
+            {
+                "type": "text_field",
+                "task": "What is the capital of Great Britain?",
+            }
+        ]
+    }
+}
+
+
+Фронтенд отправляет заполненный студентом тест в таком формате:
+
+{   
+    "testID": 1,
+    "name": "Ivan",
+    "surname": "Ivanov",
+    "answers":["answer1", "answer2"]
+}
+
+
+Преподавателю возвращаются 2 ссылки(вообще надо делать их звщищенными со всякими хэшами, но мы не будем):
+
+host/pass_test/{test_id} ссылка на фронт с тестом для студентов
+host/check_results/{test_id} ссылка на результаты, пока сделаем так, чтобы результы всех могли видеть все по этой ссылке
