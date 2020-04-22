@@ -17,9 +17,9 @@ def test_create(request):
 
 def send_test_to_student(request, test_name, user_id):
     test_instance = TestForm.objects.filter(test_name = test_name).values('test_json')
-    return JsonResponse({'test_instance': test_instance, 'test_instance_id': user_id})
+    return JsonResponse({'test_instance': list(test_instance), 'test_instance_id': user_id})
 
 @require_GET
 def get_test_results(request):
     test_results = StudentTestCase.objects.all().values('student_name', 'test_score')
-    return JsonResponse({'data': test_results})
+    return JsonResponse({'data': list(test_results)})
